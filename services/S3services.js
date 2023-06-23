@@ -1,5 +1,6 @@
 require("dotenv").config();
-const AWS = require("aws-sdk");
+import AWS from "aws-sdk";
+import { S3 } from "@aws-sdk/client-s3";
 const uploadToS3 = (data, filename) => {
   // console.log(process.env.AWS_BUCKET_NAME);
   // console.log(process.env.AWS_IAM_USER_KEY);
