@@ -17,6 +17,8 @@ const uploadToS3 = (data, filename) => {
     ACL: "public-read",
   };
   return new Promise((resolve, reject) => {
+    // S3 ManagedUpload with callbacks are not supported in AWS SDK for JavaScript (v3).
+    // Please convert to `await client.upload(params, options).promise()`, and re-run aws-sdk-js-codemod.
     s3bucket.upload(params, (err, res) => {
       if (err) {
         console.log("Something went wrong", err);
