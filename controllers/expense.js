@@ -8,8 +8,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 exports.addExpense = async function (req, res, next) {
-  const t = await sequelize.transaction();
   try {
+    const t = await sequelize.transaction();
     if (!req.body.category) {
       console.error("Please enter a category");
     }
@@ -27,6 +27,7 @@ exports.addExpense = async function (req, res, next) {
       },
       { transaction: t }
     );
+    console.log("expense created successfully");
 
     const total_expense = Number(req.user.total_expenses) + Number(price);
     await User.update(
