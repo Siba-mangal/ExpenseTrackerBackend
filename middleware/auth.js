@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-require("dotenv").config();
 
 const authenticate = (req, res, next) => {
   try {
@@ -14,7 +13,7 @@ const authenticate = (req, res, next) => {
     //   token2 = token;
     // }
 
-    const user = jwt.verify(token, "secretkey");
+    const user = jwt.verify(token, "secret");
     console.log("userID >>>> ", user.signupId);
     User.findByPk(user.signupId).then((user) => {
       req.user = user; ///ver

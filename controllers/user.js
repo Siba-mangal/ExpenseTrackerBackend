@@ -26,7 +26,7 @@ const signUp = async function (req, res, next) {
 };
 
 const generateAccessToken = (id, name, ispremiumuser) => {
-  return jwt.sign({ signupId: id, username: name, ispremiumuser }, "secretkey");
+  return jwt.sign({ signupId: id, username: name, ispremiumuser }, "secret");
 };
 
 const login = async (req, res, next) => {

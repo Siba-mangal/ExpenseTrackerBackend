@@ -2,12 +2,9 @@ const expense = require("../models/expense");
 const User = require("../models/userModel");
 const sequelize = require("../util/database");
 
-const fs = require("fs");
-const json2csv = require("json2csv");
 const UserServices = require("../services/userservices");
 const S3services = require("../services/S3services");
 const dotenv = require("dotenv");
-const { Result } = require("express-validator");
 dotenv.config();
 
 exports.addExpense = async function (req, res, next) {
