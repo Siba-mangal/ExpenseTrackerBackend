@@ -54,7 +54,7 @@ exports.getExpense = async (req, res, next) => {
     const data = await expense
       .count({ where: { signupId: req.user.id } })
       .then(async (data) => {
-        const expenseData = await expense.findAll({
+        const expenseData = expense.findAll({
           where: { signupId: req.user.id },
           offset: (pageNo - 1) * limit_per_page,
           limit: limit_per_page,
