@@ -8,6 +8,9 @@ const sequelize = new Sequelize(
   {
     dialect: "mysql",
     host: process.env.HOST_NAME,
+    // define: {
+    //   timestamps: false,
+    // },
   }
 );
 
