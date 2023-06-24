@@ -48,10 +48,10 @@ exports.getExpense = async (req, res, next) => {
   try {
     const limit_per_page = parseInt(req.query.param2);
     const pageNo = req.query.param1;
-    const data = await expense
+    const data = expense
       .count({ where: { signupId: req.user.id } })
       .then(async (data) => {
-        const expenseData = expense.findAll({
+        const expenseData = await expense.findAll({
           where: { signupId: req.user.id },
           offset: (pageNo - 1) * limit_per_page,
           limit: limit_per_page,
