@@ -8,7 +8,7 @@ const authenticate = (req, res, next) => {
     console.log(token);
     console.log(token.split(" ")[1]);
     let token2 = token.split(" ")[0];
-    if (token2 === "Bearer") {
+    if (token2 === "Bearer" && token2 !== "undefined") {
       token2 = token.split(" ")[1];
     } else {
       token2 = token;
