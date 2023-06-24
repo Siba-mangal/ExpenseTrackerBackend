@@ -9,7 +9,7 @@ exports.getUserLeaderBoard = async (req, res) => {
       attributes: [
         "id",
         "username",
-        [sequelize.fn("sum", sequelize.col("expenses.price")), "total_cost"],
+        [sequelize.fn("sum", sequelize.col(expenses.price)), "total_cost"],
       ],
       include: [
         {
